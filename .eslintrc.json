@@ -3,22 +3,24 @@
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": ["react", "react-hooks", "prettier"],
-  "settings": {
-    "react": {
-      "version": "detect"
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:prettier/recommended"
+      ],
+      "plugins": ["@typescript-eslint", "react", "react-hooks", "prettier"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      },
+      "rules": {
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off"
+      }
     }
-  },
-  "parserOptions": {
-    "sourceType": "module",
-    "allowImportExportEverywhere": true
-  },
-  "rules": {
-    "react/react-in-jsx-scope": "off"
-  }
+  ]
 }
